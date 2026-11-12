@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:test/test.dart';
 
-// Runs bin/compat.dart the way `dart run bin/compat.dart` does, types two
+// Runs lib/compat.dart the way `dart run lib/compat.dart` does, types two
 // pairs into it, and checks what main() prints.
 Future<ProcessResult> runProgram(String path, String input) async {
   final process = await Process.start(Platform.resolvedExecutable, ['run', path]);
@@ -16,12 +16,12 @@ Future<ProcessResult> runProgram(String path, String input) async {
 }
 
 void main() {
-  group('main() in bin/compat.dart', () {
-    test('bin/compat.dart exists and declares main()', () {
-      final file = File('bin/compat.dart');
-      expect(file.existsSync(), isTrue, reason: 'Keep your program in bin/compat.dart.');
+  group('main() in lib/compat.dart', () {
+    test('lib/compat.dart exists and declares main()', () {
+      final file = File('lib/compat.dart');
+      expect(file.existsSync(), isTrue, reason: 'Keep your program in lib/compat.dart.');
       expect(file.readAsStringSync(), matches(RegExp(r'\bmain\s*\(')),
-          reason: 'bin/compat.dart needs a main() function so `dart run` can start it.');
+          reason: 'lib/compat.dart needs a main() function so `dart run` can start it.');
     });
 
     test('runs without error, scores each pair and counts the matches', () async {
@@ -30,9 +30,9 @@ void main() {
       const input = '2\n'
           'Hinata\n17\nvolleyball,food\nKageyama\n19\nVolleyball,milk,food\n'
           'Light\n18\nchess\nL\n30\nsweets\n';
-      final result = await runProgram('bin/compat.dart', input);
+      final result = await runProgram('lib/compat.dart', input);
       expect(result.exitCode, equals(0),
-          reason: '`dart run bin/compat.dart` must finish without an error.\n${result.stderr}');
+          reason: '`dart run lib/compat.dart` must finish without an error.\n${result.stderr}');
       final output = result.stdout as String;
       expect(output, contains('60'), reason: 'Print the score for each pair.');
       expect("It's a match!".allMatches(output).length, equals(1),

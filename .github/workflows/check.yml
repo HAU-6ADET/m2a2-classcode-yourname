@@ -3,7 +3,6 @@ name: Check M2A2
 on:
   push:
     paths:
-      - 'bin/**'
       - 'lib/**'
       - 'test/**'
       - 'student.json'

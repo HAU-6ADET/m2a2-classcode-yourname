@@ -17,14 +17,14 @@ Pick anime characters you like, from any series. In `lib/compat.dart`, write the
 - `int compatibility(List<String> interestsA, int ageA, List<String> interestsB, int ageB)`: a score from 0 to 100. Start with 20 points per shared interest, up to 80, then add 20 if the age gap is 3 or less. Never return more than 100.
 - `bool isMatch(int score)`: true from 60 upwards.
 
-`bin/compat.dart` asks how many pairs to check, reads each pair's names, ages and comma-separated interests, and prints each score with **It's a match!** or **Keep swiping**. At the end it prints how many pairs matched.
+`main()` in `lib/compat.dart` asks how many pairs to check, reads each pair's names, ages and comma-separated interests, and prints each score with **It's a match!** or **Keep swiping**. At the end it prints how many pairs matched.
 
 For each pair it reads, one per line and in this order: the first character's name, age and interests, then the second character's name, age and interests. The last line it prints is the number of pairs that matched.
 
-`main()` in `bin/compat.dart` is required: it is the entry point Dart starts, and without it the program cannot run. Run your program with:
+`main()` in `lib/compat.dart` is required: it is the entry point Dart starts, and without it the program cannot run. Run your program with:
 
 ```sh
-dart run bin/compat.dart
+dart run lib/compat.dart
 ```
 
 ## Concepts to research
@@ -36,7 +36,7 @@ dart run bin/compat.dart
 
 ## How it is graded
 
-10 test points for correctness: the functions are tested with edge cases such as no shared interests, an age gap of exactly 3 and a score that would pass 100, and the tests also run `bin/compat.dart` with two pairs and check that it finishes without an error and prints each verdict and the match count. 10 rubric points for logical design (10, 7, 4 or 1).
+10 test points for correctness: the functions are tested with edge cases such as no shared interests, an age gap of exactly 3 and a score that would pass 100, and the tests also run `lib/compat.dart` with two pairs and check that it finishes without an error and prints each verdict and the match count. 10 rubric points for logical design (10, 7, 4 or 1).
 
 Every activity also checks `student.json`: fill in your full name, student number, school email, class code, GitHub username, `room` and `pcNumber`, all as text.
 
@@ -51,7 +51,7 @@ The tests in your repository are a guide. The instructor grades from the course'
 
 ```sh
 git status
-git add bin/ lib/ student.json SOURCES-AND-ASSISTANCE.md
+git add lib/ student.json SOURCES-AND-ASSISTANCE.md
 git commit -m "Complete M2A2"
 ```
 

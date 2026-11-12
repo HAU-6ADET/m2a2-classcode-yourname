@@ -17,3 +17,9 @@ int compatibility(
 bool isMatch(int score) {
   return false;
 }
+
+// The console program. Read README.md for what it must ask and print.
+// Run it with: dart run lib/compat.dart
+void main() {
+  print('Kilig compatibility checker: not built yet');
+}
